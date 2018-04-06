@@ -150,27 +150,24 @@ function doSomething() {
     return false
     }
 
-    console.log(data);
-
-    // We will then re-display the content as an array for later use.
-
-    // spotify.search({ type: 'track', query: userQuery, limit: 1 }, function(err, data) {
-    //     if ( err ) {
-    //         console.log('Error occurred: ' + err);
-    //         return;
-    //     }
-    //     console.log("=============================================");
-    //     //artist name
-    //     console.log("The artist name is: " + data.tracks.items[0].artists[0].name)
-    //     //song name
-    //     console.log("The song name is: " + data.tracks.items[0].name)
-    //     //preview link
-    //     console.log("The preview link is: " + data.tracks.items[0].artists[0].href)
-    //     //album name
-    //     console.log("The album name is: " + data.tracks.items[0].album.name)
-    //     console.log("=============================================");
-    // });
-
+    var silly = data.split(',');
+    console.log(silly[1]);
+    spotify.search({ type: 'track', query: silly[1], limit: 1 }, function(err, data) {
+        if ( err ) {
+            console.log('Error occurred: ' + err);
+            return;
+        }
+        console.log("=============================================");
+        //artist name
+        console.log("The artist name is: " + data.tracks.items[0].artists[0].name)
+        //song name
+        console.log("The song name is: " + data.tracks.items[0].name)
+        //preview link
+        console.log("The preview link is: " + data.tracks.items[0].artists[0].href)
+        //album name
+        console.log("The album name is: " + data.tracks.items[0].album.name)
+        console.log("=============================================");
+    });
     
     });
 };
